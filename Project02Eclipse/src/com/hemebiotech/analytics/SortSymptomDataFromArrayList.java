@@ -2,23 +2,29 @@ package com.hemebiotech.analytics;
 
 import java.util.*;
 
-public class SortSymptomDataFromArrayList {
-
-	public TreeMap<String, Integer> sortingSymptomsData() {
-		
 /**
-* Instance of reading method 
-*/
+ * 
+ * Creating a TreeMap class to implement SortedMap interface that will extends to Map interface.
+ * Map Interface is used to get key-value pairs. Here, keys are unique type of symptoms and values are their occurrences.
+ * TreeMap is used instead of Map for alphabetical sorting purpose.  
+ * @author Bastien 
+ *
+ */
 
-		ReadSymptomDataFromFile instanceReadSymptom = new ReadSymptomDataFromFile("symptoms.txt");
-		List<String> allSymptomsList = instanceReadSymptom.getSymptoms();
-		
-/**
-* Declaring Treemap to put unique symptoms types as keys and number of occurrences as values.
-* Use of Treemap instead of HashMap for alphabetical sorting purpose.
-*/
+public class SortSymptomDataFromArrayList implements ISortSymptomDataFromArrayList{
+	/**
+	 * 
+	 * @return an alphabetical sorted list of keys and values without duplicates. Keys being symptoms and Values being occurrences.
+	 */
+	
+	@Override
+	public TreeMap<String, Integer> sortingSymptomsData(List<String> allSymptomsList) {
+
+		//ReadSymptomDataFromFile instanceReadSymptom = new ReadSymptomDataFromFile("symptoms.txt");
+		//List<String> allSymptomsList = instanceReadSymptom.getSymptoms();		
 
 		TreeMap<String, Integer> sortedSymptoms = new TreeMap<String, Integer>();
+
 /** 
  * Iterate keys and values.
  */
@@ -31,9 +37,6 @@ public class SortSymptomDataFromArrayList {
 		}
 		System.out.println("Counting File : OK - Number of Symptoms = " + sortedSymptoms.size());
 		
-/** 
-* @return an alphabetical sorted list of keys and values. Keys being symptoms and Values being occurrences. 
-*/
 		return sortedSymptoms;
 
 	}
